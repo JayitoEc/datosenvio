@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Envío a WhatsApp</title>
+</head>
+<body>
+    <h1>Formulario de Envío a WhatsApp</h1>
+    <form id="whatsapp-form">
+        <label for="destinatario">Destinatario:</label>
+        <input type="text" id="destinatario" name="destinatario"><br><br>
+        
+        <label for="cedula_ruc">Cédula o RUC:</label>
+        <input type="text" id="cedula_ruc" name="cedula_ruc"><br><br>
+        
+        <label for="sector">Nombre del sector:</label>
+        <input type="text" id="sector" name="sector"><br><br>
+        
+        <label for="calle_principal">Calle Principal:</label>
+        <input type="text" id="calle_principal" name="calle_principal"><br><br>
+        
+        <label for="numero_casa">Número de Casa:</label>
+        <input type="text" id="numero_casa" name="numero_casa"><br><br>
+        
+        <label for="calle_transversal">Calle Transversal:</label>
+        <input type="text" id="calle_transversal" name="calle_transversal"><br><br>
+        
+        <label for="referencia">Referencia:</label>
+        <input type="text" id="referencia" name="referencia"><br><br>
+        
+        <label for="contacto">Contacto:</label>
+        <input type="text" id="contacto" name="contacto"><br><br>
+        
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" name="ciudad"><br><br>
+        
+        <label for="provincia">Provincia:</label>
+        <input type="text" id="provincia" name="provincia"><br><br>
+        
+        <label for="observaciones">Observaciones:</label><br>
+        <textarea id="observaciones" name="observaciones" rows="4" cols="50"></textarea><br><br>
+        
+        <input type="submit" value="Enviar a WhatsApp">
+    </form>
+
+    <script>
+        document.getElementById('whatsapp-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let destinatario = document.getElementById('destinatario').value;
+            let cedula_ruc = document.getElementById('cedula_ruc').value;
+            let sector = document.getElementById('sector').value;
+            let calle_principal = document.getElementById('calle_principal').value;
+            let numero_casa = document.getElementById('numero_casa').value;
+            let calle_transversal = document.getElementById('calle_transversal').value;
+            let referencia = document.getElementById('referencia').value;
+            let contacto = document.getElementById('contacto').value;
+            let ciudad = document.getElementById('ciudad').value;
+            let provincia = document.getElementById('provincia').value;
+            let observaciones = document.getElementById('observaciones').value;
+            
+            let mensaje = `Destinatario: ${destinatario}%0A`;
+            mensaje += `Cédula o RUC: ${cedula_ruc}%0A`;
+            mensaje += `Nombre del sector: ${sector}%0A`;
+            mensaje += `Calle Principal: ${calle_principal}%0A`;
+            mensaje += `Número de Casa: ${numero_casa}%0A`;
+            mensaje += `Calle Transversal: ${calle_transversal}%0A`;
+            mensaje += `Referencia: ${referencia}%0A`;
+            mensaje += `Contacto: ${contacto}%0A`;
+            mensaje += `Ciudad: ${ciudad}%0A`;
+            mensaje += `Provincia: ${provincia}%0A`;
+            mensaje += `Observaciones: ${observaciones}`;
+
+            window.open(`https://wa.me/593980844531?text=${mensaje}`, '_blank');
+        });
+    </script>
+</body>
+</html>
